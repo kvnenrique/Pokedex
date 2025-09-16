@@ -1,0 +1,30 @@
+<div 
+    class="pokemon" 
+    (click)="openPokemonDetailsDialog()"
+    >
+    
+    <!-- Name  -->
+    <div class="pokemon-info">
+        <div class="name-container">
+            <h2 class="pokemon-name">{{ pokemon.name }}</h2>
+        </div>
+    </div>
+
+    <!-- Image -->
+    <div class="pokemon-image" [ngClass]="{'img-svg': isSvgImage}">
+        <img [src]="pokemon.imageUrl" [alt]="pokemon.name">
+    </div>
+
+    <!--Info -->
+    <div class="pokemon-info">
+        <p class="pokemon-id">#{{ formatPokemonId(pokemon.id) }}</p>
+        <!-- Pokemon types -->
+        <div class="pokemon-types">
+            <ng-container *ngFor="let type of pokemon.types">
+                <p class="{{ type.toLowerCase() }} type">
+                    {{ translatePokemonType(type) }} <!-- Pokemon type translated to spanish -->
+                </p>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="pokemon-details-dialog">    
+    <div class="dialog-content">
+        <!--Pokemon details-->
+        <div>
+            <!-- Pokemon name -->
+            <div class="pokemon-info">
+                <div class="name-container">
+                    <h2 class="pokemon-name">{{ pokemon.name }}</h2>
+                </div>
+            </div>
+
+
+            <!-- Image -->
+            <div class="pokemon-image-big" [ngClass]="{'img-svg': isSvgImage}">
+                <img [src]="pokemon.imageUrl" [alt]="pokemon.name">
+            </div>
+
+            <!--Info -->
+            <div class="pokemon-info">
+                <!-- id -->
+                <p class="pokemon-id">#{{ formatPokemonId(pokemon.id) }}</p>
+            </div>
+
+            <!-- Tabs -->
+            <mat-tab-group>
+                <!-- About -->
+                <mat-tab label="Acerca de">
+                    <div class="pokemon-info-panel">
+                        <div class="pokemon-info">    
+                            <!-- Height and weight -->
+                            <div class="column">
+                                <p class="pokemon-detail">Altura:  {{ pokemon.height }}</p>
+                                <p class="pokemon-detail">Peso: {{ pokemon.weight }}</p>
+                            </div>
+    
+                            <!-- Pokemon types -->
+                            <div class="pokemon-types">
+                                <ng-container *ngFor="let type of pokemon.types">
+                                    <p class="{{ type.toLowerCase() }} type">
+                                        {{ translatePokemonType(type) }}
+                                    </p>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+
+                <!-- Stats -->
+                <mat-tab label="Estadísticas">
+                    <div class="pokemon-info-panel">
+                        <div class="pokemon-info">
+                            <div class="column">
+                                <p class="pokemon-detail">HP: {{ pokemon.stats.hp }}</p>
+                                <p class="pokemon-detail">Ataque: {{ pokemon.stats.attack }}</p>
+                                <p class="pokemon-detail">Defensa: {{ pokemon.stats.defense }}</p>
+                                <p class="pokemon-detail">Ataque especial: {{ pokemon.stats.special_attack }}</p>
+                                <p class="pokemon-detail">Defensa especial: {{ pokemon.stats.special_defense }}</p>
+                                <p class="pokemon-detail">Velocidad: {{ pokemon.stats.speed }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+            
+        </div>
+
+        <!-- Close button -->
+        <button mat-raised-button (click)="close()">Cerrar</button>
+    </div>
+</div>

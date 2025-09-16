@@ -1,0 +1,10 @@
+$clr-red: #e3350d;
+
+:host {
+    position: fixed;   // Fixes the header to the viewport 
+    top: 0;            // Stick to the top 
+    left: 0;           // Align with left edge 
+    width: 100%;       // Full width 
+    height: 60px;      // Set your desired height
+    z-index: 1000;     //  Keep it on top of other content
+  }
