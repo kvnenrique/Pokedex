@@ -27,3 +27,7 @@ ng serve
 ```
 
 La aplicación estará accesible en:  `http://localhost:4200/`.
+
+## Notas
+Asegurate de tener instalado Angular CLI en tu
+computadora: (https://angular.dev/installation)
